@@ -1,6 +1,6 @@
 # timomio.github.com
 
-This is my personal website. Visit it at https://timomio.com.
+This is my personal website. Visit it at http://timomio.com.
 
 The theme was mostly borrowed from https://html5up.net/spectral/.
 
