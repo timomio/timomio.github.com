@@ -7,18 +7,24 @@
   <style>
     html, body { height: 100%; margin: 0; }
     body {
-      display: grid;
-      place-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* vertical center for word */
+      align-items: center;     /* horizontal center for word */
       background: #ffffff;
       color: #000000;
       font-family: "Courier New", Courier, ui-monospace, Menlo, Monaco, Consolas,
         "Liberation Mono", "Lucida Console", monospace;
     }
     .word {
-      font-size: clamp(16px, 4vw, 53px);
-      line-height: 1;
+      font-size: clamp(14px, 4vw, 60px); /* ~30% smaller */
+      line-height: 1.1;
       letter-spacing: 0.02em;
-      margin-bottom: 20px;
+      font-weight: normal;
+      text-align: center;
+    }
+    .widget {
+      margin-top: 60px; /* push widget below word */
     }
   </style>
   <!-- Cloudflare Turnstile API -->
@@ -28,22 +34,24 @@
     defer
   ></script>
   <script>
-    // Example callback function
     function onSuccess(token) {
       console.log("Turnstile verified, token:", token);
     }
   </script>
 </head>
 <body>
-  <div class="word">juicedmedia</div>
+  <!-- Word centered in the middle -->
+  <div class="word">Juicedmedia</div>
 
-  <!-- Configured Turnstile widget -->
-  <div
-    class="cf-turnstile"
-    data-sitekey="0x4AAAAAAB3sBgMyBFPAlEU0"
-    data-theme="light"
-    data-size="normal"
-    data-callback="onSuccess"
-  ></div>
+  <!-- Widget placed separately below -->
+  <div class="widget">
+    <div
+      class="cf-turnstile"
+      data-sitekey="0x4AAAAAAB3sBgMyBFPAlEU0"
+      data-theme="light"
+      data-size="normal"
+      data-callback="onSuccess"
+    ></div>
+  </div>
 </body>
 </html>
