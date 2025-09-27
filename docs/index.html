@@ -18,10 +18,32 @@
       font-size: clamp(16px, 4vw, 53px);
       line-height: 1;
       letter-spacing: 0.02em;
+      margin-bottom: 20px;
     }
   </style>
+  <!-- Cloudflare Turnstile API -->
+  <script
+    src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+    async
+    defer
+  ></script>
+  <script>
+    // Example callback function
+    function onSuccess(token) {
+      console.log("Turnstile verified, token:", token);
+    }
+  </script>
 </head>
 <body>
   <div class="word">juicedmedia</div>
+
+  <!-- Configured Turnstile widget -->
+  <div
+    class="cf-turnstile"
+    data-sitekey="0x4AAAAAAB3sBgMyBFPAlEU0"
+    data-theme="light"
+    data-size="normal"
+    data-callback="onSuccess"
+  ></div>
 </body>
 </html>
